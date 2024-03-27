@@ -9,7 +9,7 @@ class ProductViewset(viewsets.ModelViewSet):
     Les Methode dont nous aurons besoin et que supporte cette vue
 
     get    -> list -> queryset
-    get    -> retrieve
+    get    -> retrieve(detail)
     post   -> create
     put    -> update
     patch  -> partial update

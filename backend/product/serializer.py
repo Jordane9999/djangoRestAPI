@@ -35,9 +35,9 @@ class ProductSerializer(serializers.ModelSerializer):
         # fields = ('owner', 'user_name', 'email', 'url', 'pk', 'name', 'price', 'content',
         #           'my_discount', 'get_discount')
         fields = ('user_name', 'email', 'url', 'pk', 'name', 'price', 'content',
-                  'my_discount', 'get_discount')
+                  'my_discount', 'get_discount', 'owner')
 
-    # Methode1 de Validation de donner
+    # Methode 1 de Validation de donner
     # def validate_name(self, value):
     #     qs = Product.objects.filter(name__iexact=value)
     #     if qs.exists():
@@ -45,13 +45,13 @@ class ProductSerializer(serializers.ModelSerializer):
     #             f"le produi '{value}' existe deja dans la base de donner")
     #     return value
 
-    # Methode2 de Validation de donner
+    # Methode 2 de Validation de donner
 
     # premierer methode pour metre en place le mail
 
     # def create(self, validated_data):
     #     print(validated_data)
-    #     # cette methode permet d'enlever l'element passer en parametre danas la liste
+    #     # cette methode permet d'enlever l'element passer en parametre dans la liste
     #     email = validated_data.pop('email')
     #     print(email)
     #     print(validated_data)

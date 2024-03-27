@@ -63,10 +63,12 @@ def api_view(request):
     #     #     'name', 'price', 'content', 'get_discount'))
     #     data = ProductSerializer(query).data
 
-    # Envoie des donner dans la base de donner
+    ## Envoie des donner dans la base de donner
+    # convertion des donner en dictionnaire avec la class ProductSerializer
     serializer = ProductSerializer(data=request.data)
     # print(serializer)
     # raise_exception=True elle permet d'afficher les erreur lors de l'envoie des donner
+    # verrifie la validiter des donner et l'enregistre
     if serializer.is_valid(raise_exception=True):
         serializer.save()
         return Response(serializer.data)
@@ -114,9 +116,9 @@ class ListCreateProductView(UserQuerySetProductMixins, StaffEditorPermissionsMix
     # Ceci nous permet de mettre en place des permission pour l'exploitation de notre api par un tierce
     # permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     # permission_classes = [permissions.DjangoModelPermissions]
-    # Utilisation des permission personnaliser, il faut savoire que les permission sont mise par ordre de prioriter et c'est commme cele qu'ellle secra gerer par django
+    # Utilisation des permission personnaliser, il faut savoire que les permission sont mise par ordre de prioriter et c'est commme cela qu'elle sera gerer par django
     """ 
-    Pour eviter la repetition des codes de permission nous avons utiliser le concept de mixins pour redure la quantiter de code a ecrire, et evoyer la class comme un parametre donc nous avons plus besoin de mettre le permission_classes
+    Pour eviter la repetition des codes de permission nous avons utiliser le concept de mixins pour redure la quantiter de code a ecrire, et à envoyer la class comme un parametre donc nous avons plus besoin de mettre le permission_classes
     """
     # permission_classes = [
     #     permissions.IsAdminUser,  # verrifie si l'utilisateur est admin ou simple

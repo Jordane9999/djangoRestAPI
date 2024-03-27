@@ -3,11 +3,11 @@ from django.shortcuts import render
 from django.http import JsonResponse
 
 # Create your views here.
-
+ 
 
 def api_view(request, *args, **kwargs):
-    # request => HttpRequest
-    print(request.body)  # ceci envoie un byte string (b'')
+    # request => est une  instance de la class HttpRequest
+    print(request.body)  # ceci renvoie un byte string (b'')
     # permet de convertir les donner en dictionnaire python plus precisement il enleve le byte string
     data = json.loads(request.body)
     print(data)
